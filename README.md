@@ -2,7 +2,7 @@
 
 Welcome to **Stackopolis 2077**: my portfolio, styled like a Cyberpunk game. My 3D avatar holo-calls you as your Fixer, walks you through my work in game-style subtitles, cracks programmer jokes, and chats with you using AI.
 
-**Live site:** _add your Vercel URL here_ · **Author:** [Athul Babu Teeyancheri](https://www.linkedin.com/in/athulbabu)
+**Live site:** [athul-babu-teeyancheri-portfolio.vercel.app](https://athul-babu-teeyancheri-portfolio.vercel.app) · **Author:** [Athul Babu Teeyancheri](https://www.linkedin.com/in/athulbabu)
 
 ---
 
