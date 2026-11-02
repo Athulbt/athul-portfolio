@@ -1,4 +1,4 @@
-import { CITY, EMAIL_ACTIONS, JOKES, type ChatAction, type ChatReply } from "@/models/chat.model";
+import { CITY, CONTACT_ACTIONS, JOKES, type ChatAction, type ChatReply } from "@/models/chat.model";
 import { experiences } from "@/models/experience.model";
 import { education, profile } from "@/models/profile.model";
 import { projects } from "@/models/project.model";
@@ -15,8 +15,8 @@ const CONTACT = /\b(contact|email|reach|talk to (you|athul)|linkedin|connect)/i;
 
 /** Email buttons that fit what the visitor asked about. */
 export function actionsFor(message: string): ChatAction[] | undefined {
-  if (WEBSITE.test(message)) return [EMAIL_ACTIONS.website(profile.email)];
-  if (CONTACT.test(message)) return [EMAIL_ACTIONS.hello(profile.email)];
+  if (WEBSITE.test(message)) return [CONTACT_ACTIONS.website];
+  if (CONTACT.test(message)) return [CONTACT_ACTIONS.hello];
   return undefined;
 }
 
@@ -85,5 +85,5 @@ export function guideReply(message: string): ChatReply {
     reply += `\n\nBonus joke: ${randomJoke()}`;
   }
 
-  return { reply, source: "guide", actions: actionsFor(message) ?? (intent ? undefined : [EMAIL_ACTIONS.hello(profile.email)]) };
+  return { reply, source: "guide", actions: actionsFor(message) ?? (intent ? undefined : [CONTACT_ACTIONS.hello]) };
 }

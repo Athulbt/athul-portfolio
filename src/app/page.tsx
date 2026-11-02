@@ -1,6 +1,7 @@
 import { getPortfolio } from "@/controllers/portfolio.controller";
 import BuildInfo from "@/views/components/BuildInfo";
 import CityBackdrop from "@/views/components/CityBackdrop";
+import ContactModal from "@/views/components/ContactModal";
 import HoloCall from "@/views/components/HoloCall";
 import Terminal from "@/views/components/Terminal";
 import About from "@/views/sections/About";
@@ -34,6 +35,7 @@ export default async function Home() {
       <HoloCall media={vm.media} />
       <Terminal vm={vm} />
       <BuildInfo readme={vm.readme} repoUrl={vm.profile.links.repo} />
+      <ContactModal email={vm.profile.email} />
     </>
   );
 }

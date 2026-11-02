@@ -1,3 +1,5 @@
+import type { ContactKind } from "./contact.model";
+
 // Chatbot content: persona, jokes, quick replies and limits.
 
 export interface ChatMessage {
@@ -7,7 +9,7 @@ export interface ChatMessage {
 
 export interface ChatAction {
   label: string;
-  href: string;
+  contact: ContactKind;
 }
 
 export interface ChatReply {
@@ -48,13 +50,8 @@ export const JOKES = [
   "I tried to write a Docker joke, but it only works on my machine. 🐳",
 ];
 
-export const EMAIL_ACTIONS = {
-  website: (email: string): ChatAction => ({
-    label: "📩 Email me about a website",
-    href: `mailto:${email}?subject=${encodeURIComponent("I'd like a website built")}&body=${encodeURIComponent("Hi Athul,\n\nI'm looking for a website for: \n\nBudget/timeline: \n\nThanks!")}`,
-  }),
-  hello: (email: string): ChatAction => ({
-    label: "👋 Say hello",
-    href: `mailto:${email}?subject=${encodeURIComponent("Hello Athul!")}`,
-  }),
-};
+// Buttons the chat can attach to a reply; they open the contact options popup.
+export const CONTACT_ACTIONS = {
+  website: { label: "📩 Email me about a website", contact: "website" },
+  hello: { label: "👋 Say hello", contact: "hello" },
+} satisfies Record<string, ChatAction>;

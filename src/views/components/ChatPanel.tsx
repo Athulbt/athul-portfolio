@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { CHAT_LIMITS, CITY, JOKES, QUICK_REPLIES, type ChatAction, type ChatMessage, type ChatReply } from "@/models/chat.model";
 import type { GuidePose } from "@/models/media.model";
 import { guideReply } from "@/services/guide-bot";
+import { openContact } from "./ContactModal";
 
 type Bubble = ChatMessage & { actions?: ChatAction[]; source?: ChatReply["source"] };
 
@@ -131,9 +132,9 @@ export default function ChatPanel({ onClose, onMood }: { onClose: () => void; on
               {m.text}
             </p>
             {m.actions?.map((a) => (
-              <a key={a.href} href={a.href} className="btn-y mt-2 !py-2.5 !text-[0.65rem]">
+              <button key={a.contact} onClick={() => openContact(a.contact)} className="btn-y mt-2 !py-2.5 !text-[0.65rem]">
                 {a.label}
-              </a>
+              </button>
             ))}
           </motion.div>
         ))}

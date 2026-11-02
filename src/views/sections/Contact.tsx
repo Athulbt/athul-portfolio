@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { EMAIL_ACTIONS } from "@/models/chat.model";
 import type { Profile } from "@/models/types";
+import { openContact } from "../components/ContactModal";
 import { openChat } from "../components/HoloCall";
 import { Reveal } from "../components/ui";
 
@@ -16,7 +16,7 @@ export default function Contact({ profile }: { profile: Profile }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      window.location.href = `mailto:${profile.email}`;
+      openContact("hello");
     }
   };
 
@@ -46,9 +46,9 @@ export default function Contact({ profile }: { profile: Profile }) {
               Booking sites, business pages, dashboards, full stack apps. I built the site that grew Lambton Window Pros&apos; online bookings by 30%. Tell me what you need.
             </p>
             <p className="mt-3 font-mono text-sm text-yellow">Reward: a website that actually works ✓</p>
-            <a href={EMAIL_ACTIONS.website(profile.email).href} className="btn-y mt-6">
+            <button onClick={() => openContact("website")} className="btn-y mt-6">
               Accept gig: email me
-            </a>
+            </button>
           </div>
         </Reveal>
 
@@ -59,7 +59,7 @@ export default function Contact({ profile }: { profile: Profile }) {
             <h3 className="mt-3 font-display text-xl font-bold uppercase">Just say hello</h3>
             <p className="mt-3 text-lg text-ink/80">Recruiter, fellow dev or just curious? Ping me. I answer faster than a flying cab in rush hour.</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={EMAIL_ACTIONS.hello(profile.email).href} className="btn-y">Say hello 👋</a>
+              <button onClick={() => openContact("hello")} className="btn-y">Say hello 👋</button>
               <button onClick={openChat} className="btn-ghost">Holo-call me</button>
             </div>
             <button onClick={copyEmail} className="mt-4 block font-mono text-sm text-muted hover:text-cyan">

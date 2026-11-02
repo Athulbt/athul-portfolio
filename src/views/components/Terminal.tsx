@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import type { PortfolioViewModel } from "@/controllers/portfolio.controller";
+import { openContact } from "./ContactModal";
 
 const OPEN_EVENT = "open-terminal";
 export const openTerminal = () => window.dispatchEvent(new Event(OPEN_EVENT));
@@ -104,7 +105,7 @@ export default function Terminal({ vm }: { vm: PortfolioViewModel }) {
     contact: () =>
       print(
         <div>
-          <div>email    <a className="text-cyan underline" href={`mailto:${vm.profile.email}`}>{vm.profile.email}</a></div>
+          <div>email    <button className="text-cyan underline" onClick={() => { setOpen(false); openContact("hello"); }}>{vm.profile.email}</button></div>
           <div>linkedin <a className="text-cyan underline" href={vm.profile.links.linkedin} target="_blank" rel="noopener noreferrer">{vm.profile.links.linkedin}</a></div>
           <div>github   <a className="text-cyan underline" href={vm.profile.links.github} target="_blank" rel="noopener noreferrer">{vm.profile.links.github}</a></div>
         </div>,
@@ -118,9 +119,9 @@ export default function Terminal({ vm }: { vm: PortfolioViewModel }) {
     sudo: (arg) => {
       if (arg === "hire-athul") {
         print(<span className="text-green-400">[sudo] verifying candidate... ✓ production experience ✓ full stack ✓ Azure certified</span>);
-        print(<span className="text-cyan">🎉 Excellent decision! Opening email so we can talk...</span>);
+        print(<span className="text-cyan">🎉 Excellent decision! Opening a message to me...</span>);
         burstConfetti();
-        setTimeout(() => (window.location.href = `mailto:${vm.profile.email}?subject=Let's%20talk%20about%20a%20role`), 1800);
+        setTimeout(() => { setOpen(false); openContact("hire"); }, 1800);
       } else print(<span className="text-red-400">Nice try. This incident will be reported 😄</span>);
     },
     rm: () => print(<span className="text-red-400">🙅 Not on my watch.</span>),

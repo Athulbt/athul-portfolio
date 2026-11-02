@@ -2,9 +2,9 @@
 
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { EMAIL_ACTIONS } from "@/models/chat.model";
 import type { MediaManifest } from "@/models/media.model";
 import type { Profile, Tech } from "@/models/types";
+import { openContact } from "../components/ContactModal";
 import { openChat } from "../components/HoloCall";
 import HoloPortrait from "../components/HoloPortrait";
 import { openTerminal } from "../components/Terminal";
@@ -78,7 +78,7 @@ export default function Hero({ profile, orbit, media }: { profile: Profile; orbi
 
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <a href="#projects" className="btn-y">See my work</a>
-            <a href={EMAIL_ACTIONS.website(profile.email).href} className="btn-ghost btn-red">Need a website?</a>
+            <button onClick={() => openContact("website")} className="btn-ghost btn-red">Need a website?</button>
             <button onClick={openChat} className="btn-ghost">Talk to me</button>
             <button onClick={openTerminal} className="btn-ghost !font-mono !normal-case !tracking-normal">&gt;_ terminal</button>
           </motion.div>
