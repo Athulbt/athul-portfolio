@@ -24,7 +24,7 @@ export default async function Home() {
       <Nav />
       <main>
         <Hero profile={vm.profile} orbit={vm.orbit} media={vm.media} />
-        <About profile={vm.profile} repoCount={vm.github.publicRepos} media={vm.media} />
+        <About profile={vm.profile} repoCount={vm.github.publicRepos} />
         <Experience items={vm.experiences} />
         <Projects projects={vm.projects} moreRepos={vm.moreRepos} />
         <Skills groups={vm.skills} />

@@ -20,6 +20,7 @@ export interface Profile {
   roles: string[];
   location: string;
   summary: string[];
+  photo: string; // shown only in the About section
   email: string;
   links: { github: string; linkedin: string; repo: string };
 }

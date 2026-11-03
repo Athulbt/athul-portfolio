@@ -1,12 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
-import type { MediaManifest } from "@/models/media.model";
 import type { Profile } from "@/models/types";
-import HoloPortrait from "../components/HoloPortrait";
 import { Reveal, SectionHeading } from "../components/ui";
 
-export default function About({ profile, repoCount, media }: { profile: Profile; repoCount: number; media: MediaManifest }) {
+export default function About({ profile, repoCount }: { profile: Profile; repoCount: number }) {
   const facts = [
     { k: "Based in", v: profile.location },
     { k: "Focus", v: "Full stack web" },
@@ -23,7 +22,8 @@ export default function About({ profile, repoCount, media }: { profile: Profile;
           <div className="brackets mx-auto max-w-[320px]">
             <div className="cut panel overflow-hidden">
               <div className="relative aspect-square">
-                <HoloPortrait media={media} pose="talk" sizes="320px" />
+                <Image src={profile.photo} alt={profile.name} fill sizes="320px" className="object-cover object-[60%_30%]" />
+                <div className="scanlines pointer-events-none absolute inset-0 opacity-30" />
                 <motion.div
                   className="absolute inset-x-0 h-0.5 bg-cyan shadow-[0_0_14px_var(--color-cyan)]"
                   animate={{ top: ["0%", "100%", "0%"] }}
@@ -31,7 +31,7 @@ export default function About({ profile, repoCount, media }: { profile: Profile;
                 />
               </div>
               <div className="flex items-center justify-between px-3 py-2">
-                <span className="hud-label !text-[9px] text-cyan">Fixer avatar</span>
+                <span className="hud-label !text-[9px] text-cyan">ID verified</span>
                 <span className="hud-label !text-[9px] text-green-400">● Open to work</span>
               </div>
             </div>

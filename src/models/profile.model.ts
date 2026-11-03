@@ -16,6 +16,7 @@ export const profile: Profile = {
     "My path started in robotics and machine learning in India, training YOLO models on a Raspberry Pi and wiring up RC cars. I moved to Canada to go deep on software engineering, and since then I've shipped real products for real businesses.",
     "I care about clean APIs, accessible mobile-first UIs, and tests that catch things before users do. I also use AI tools like Claude Code and GitHub Copilot every day to move faster.",
   ],
+  photo: "/media/athul-photo.jpg",
   email: "athuljr240701@gmail.com",
   links: {
     github: "https://github.com/Athulbt",

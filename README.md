@@ -76,7 +76,7 @@ To change any content (jobs, projects, skills, jokes), edit the files in `src/mo
 2. **Scaffolded** with `create-next-app` (TypeScript, Tailwind, App Router).
 3. **Wrote the models first**: typed data for profile, jobs, projects and skills.
 4. **Added services and controllers**: live GitHub stats with hourly caching, then the chatbot pipeline.
-5. **Visuals**: the city backdrop was generated for free with [Pollinations.ai](https://pollinations.ai), and the Fixer is my own 3D avatar. No real photos are used.
+5. **Visuals**: the city backdrop was generated for free with [Pollinations.ai](https://pollinations.ai), and the Fixer is my own 3D avatar. My photo appears only in the About section.
 6. **Designed a game UI** inspired by Cyberpunk 2077: Orbitron and Rajdhani fonts, signal yellow and cyan, clip-path angled panels, CSS glitch text and a canvas rain effect.
 7. **Used real logos**: company logos from their own websites, tech logos from Devicon and Simple Icons.
 8. **Tested** on desktop and mobile, then ran lint, the type-check and a production build.
